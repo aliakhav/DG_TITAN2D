@@ -1,0 +1,78 @@
+Instructions for running jobs on crosby.ccr.buffalo.edu, nash.ccr.buffalo.edu, and the Linux boxes in Trailer I.  For large jobs, runs should currently be done on crosby.ccr.buffalo.edu and not nash.ccr.buffalo.edu due to disk usage.
+
+The code currently simulates granular flow.  It runs in parallel with mesh refinement and unrefinement.  The maximum refinement level is set at 3.  Mesh repartitioning is also used to maintain a good load-balance.  A python script is included to simplify submitting jobs to machines at CCR.  Currently only crosby.ccr.buffalo.edu is available but this should change soon.  Grass is now used as the GIS.  
+
+The python script is located in the bin directory and is run by the command:  python runit.py
+
+A GUI will come up and ask for certain info.  The information that the GUI asks for is:
+
+1)  GIS Information Main Directory -- The main directory where the GIS information is stored.
+
+2)  GIS Sub-Directory -- The sub-directory where the GIS information is stored.
+
+3)  GIS Map Set 
+
+4)  GIS Map
+
+5)  Simulation Directory Location - The location from where the job will be submitted from.  All of the information (except for the GIS information) needed to run the simulation will be stored in this directory.  If this specified directory already exists, the directory will not be touched and no job will be submitted.
+
+6)  Number of Processors - The number of processors that will be used during the simulation.  The code only allows a power of 2 (ie. 2^n) amounts of processors and the amount of processor must be less than or equal to 64.
+Notes on crosby.ccr.buffalo.edu: There is a limit of 8 processors per run unless the user is allowed to use the mp queues.  The script does not allow jobs with more than 8 processors to be submitted but this can be changed.  Email acbauer@eng.buffalo.edu for help.
+
+7)  Computational Mesh Points in Y-Direction - A uniform computational grid/mesh is created by the script and the grid will have this many grid points in the y-direction.  The amount of grid points in the x-direction is calculated so that the grid has nearly the same spacing in the x and y directions.  I wouldn't recommend trying more than a couple hundred for this input value right now.  The larger the amount of grid points, the longer the simulation will take to run and the more disk space that will be needed to save the results.
+
+8,9)  Internal Friction Angle,Bed Friction Angle - The two parameters specifying the friction.  Both angles are to be input in degrees.
+
+
+10)  Scale Simulation? -  Activate the 'Yes' button to scale the governing equations by the pile height, a length scale and a gravity scale (activated button appears as a red color).  The pile height scale is taken from the Pile Height input value so that the maximum initial height is 1 for the scaled simulation.  The gravity gets scaled to 1, otherwise it is 9.80 m/s^2.
+
+11)  If Scaled, Length Scale (m) - A scale that will usually correspond to the runout length of the flow.  This is only used if the simulation is scaled.
+
+12)  Maximum Number of Time Steps - A maximum amount of time steps that the simulation should run.  For most simulations, this should be in the 1,000s range.  
+
+13)  Maximum Time - The maximum amount of time that the simulation will approximate.
+
+14)  Time Steps per Results Output - This corresponds to how often results will be saved to file for later analysis.  These files can become very large and the user may not need to see results for every time step since some time steps may have little change in the results from the previous time step.  
+
+15)  Adapt the Grid? - Activate the 'Yes' button to adapt the grid during the simulation (activated button appears as a red color).  Adapting the grid should result in better simulation accuracy at a reduced computational cost but can also introduce instabilities into the computation. 
+
+16)  Visualization Output 	Choose Formats (tecplotxxxx.plt/mshplotxxxx.plt/GMFG Viz/HDF) - Activate the buttons corresponding to the visualization outputs that are desired.  tecplotxxxx.plt and mshplotxxxx.plt are tecplot files.  GMFG Viz is for Pady's visualizer.  HDF is not implemented yet.  Note that the user can have multiple visualization output formats with each simulation run.
+
+17)  Email Address - The email address to send the notification of completion for the run to.  Email will be sent to <user>@buffalo.edu if not set.
+
+18)  Clean button - The Clean button clears out the object files, executables, and data files.  The idea is that if the simulation code is moved to a different machine, some things need to be 'cleaned out' so they get recreated on the new machine.  If the code doesn't seem to be running correctly, this button should be used and then try running the simulation again.
+
+19)  RUN button - Sets up and runs the simulation.  
+
+20)  QUIT button - exits the script.
+
+21)  ? button - Help button which displays the README file.  This is not working correctly yet.  
+
+After running the script by hitting the 'RUN' button, a new window will appear to input the pile geometry for each pile.  The first line will show which pile number the user is inputting data for.  The geometry for each pile is a parabaloid given by: P*(1-((x-xc)/xr)^2 - ((y-yc)/yr)^2). 
+The data to be entered is:  Thickness of Initial Volume,Center of Initial Volume, X and Y Extent - In order to allow anyone to easily specify an initial pile geometry that can vary, the pile is assumed to have a shape of a parabaloid.  The equation for the pile height is listed (a negative pile height calculated from this equation will be set to zero).  These equations are for the non-scaled pile.  If two or more piles overlap, the highest height of the pile is used as the pile height at that point.  
+The buttons in this window are:
+1)  DONE button - After the values for the pile geometry are inputted, hit the 'Done' button to enter them into the script.
+
+2)  QUIT Button - After hitting the 'Done' button, hit the 'Quit' button to exit out of this window.  If there are more pile geometries to input, another window will pop up.  Otherwise, the script will run the job.
+
+3)  Calculate Volume button - From the Maximum Initial Thickness and X and Y Extent of the initial volume, this will calculate and display the actual volume (in cubic meters) resulting from the inputted values.  This volume is only for this pile geometry and assumes that no other piles are overlapping this region.
+
+
+In order to figure out the proper values to input for the pile equation, run the simulation once for a couple of time steps in order to get some results files.  Examine the results files for the proper location and values for the pile height equation.
+
+Notes for crosby.ccr.buffalo.edu:
+1) The version of python that works with Tcl/tk is "/usr/local/python2.1/bin/python". One processor jobs do not show up on the default queues (ie. through qstat), use "qstat -a @crosby @crosby:13001" to look at all queued jobs.  
+2) The results will be left in the scratch directory where the job was run from.  The reason for this is because currently there is much more room available in this directory than in the user's home directory.  To access the results, the user needs to know the job number that was assigned to the batch job.  This number is located in the output file volcano.* and it is also listed when the job is submitted.  This directory is name "/scratch/????.crosby.ccr.buffalo.edu" where ???? represents the job number.  This directory usually gets cleaned out about a week after the job is finished so it is important to store this data properly.
+3) The simulation code is stored in /util/gmfg.
+
+Notes for nash.ccr.bufalo.edu:
+1) The job will not be submitted if the email address is not entered.
+
+Notes for stills.ccr.buffalo.edu:
+1) The simulation output is written to files on the local node it is running on in a temporary directory.  This directory gets cleaned out soon after the simulation is done running.  Because of this, the output files are moved by the script back to the specified Directory Location and zipped.  In order to make sure that user's quotas do not get exceeded, it is suggested that the user runs from a directory in /gpfs/fs1.  This storage location can store roughly a total of 50 Gigabytes but everyone has write permissions to this directory so users will likely not be able to use all of that space themselves.  /gpfs/fs1 does not get cleaned out automatically but it is not backed up either so the user should make sure that important files are stored elsewhere.  
+2) It is probably faster to run jobs on stills since this machine seems to be used less.  
+3) The simulation code is stored in /gpfs/fs1/gmfg.  This space is not backed up so if this storage space is wiped clean, email acbauer@eng.buffalo.edu to restore everything to this directory.
+
+There may be important information outputted to the terminal from the python script.  If there are problems, this is a good place to look.  For any problems, please email acbauer@eng.buffalo.edu.
+
+ 

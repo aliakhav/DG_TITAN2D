@@ -1,0 +1,4 @@
+CMDLINE=CC -DEFAULT:abi=n32:isa=mips4:proc=r10k -I. -g -woff all -LANG:std -c -n32 ../csrc/geoflow/GisAscFile.C -o GisAscFile_IRIX64_C.o
+PWD=/scratch/cnichita/DG_SIMULATION/cobj
+----
+_M_get_num__Q2_3std52basic_istream__pt__31_cQ2_3std20char_traits__pt__2_cGRi

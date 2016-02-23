@@ -1,0 +1,7 @@
+This version:
+
+compared with previous version the matrices C(F,omega) and D(G,omega) are 
+directly evaluated in the term src2(line 304 of elbshal.f) instead of 
+building the matrix bm (see file elbshal.f line 268).
+
+This version is working. Changed the ways slopes are evaluated

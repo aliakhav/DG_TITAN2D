@@ -1,0 +1,14 @@
+      common /celemf/ NODES(9,MAXELES)
+c
+c  surface elements data:
+c
+c  for an element 'nel'
+c     NODES(1-4,nel) contains numbers of the vertex nodes
+c     NODES(5-8,nel) contains nicknames for the middle side nodes
+c     NODES(9,nel)   contains nicknames for the middle node
+c                  nickname:
+c                    NODE*10 + NORDER, where
+c                    NODE   - the node number
+c                    NORDER - order of approximation for the node
+c
+

@@ -1,0 +1,9 @@
+
+      common/cboundary/Nelb_con1,Nelb_con2
+c
+c     <= Nelb_con1: normal gaussian quadrature
+c     >= Nelb_con1: equispaced quadrature
+c
+c     <= Nelb_con2: natural force condition
+c     >= Nelb_con2: essential boundary condition
+c

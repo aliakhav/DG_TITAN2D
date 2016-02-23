@@ -1,0 +1,32 @@
+c
+      parameter (MAXELIS = 500)
+      parameter (MAXFM2S = 100)
+      parameter (MAXFM4S = 400)
+      parameter (MAXELES = 1500)
+      parameter (MAXND1S = 2000)
+      parameter (MAXND2S = 3000)
+      parameter (MAXND3S = 1500)
+      parameter (MAXDF2S = 4000)
+      parameter (MAXDF3S = 8000)
+      parameter (MAXCONS = 500)
+      parameter (MAXWORK = 820000)
+      parameter (MAXDOF = 5000)
+      parameter (MAXEQS = 10)
+c      parameter (MAXWORK = 4430000)
+c
+c  explanation of parameters
+c     MAXELIS - maximum number of elements in the initial surface
+c               mesh
+c     MAXFM2S - maximum number of two-sons families
+c     MAXFM4S - maximum number of four-sons families
+c     MAXELES - maximum number on the surface
+c     MAXND1S - maximum number of the vertex nodes
+c     MAXND2S - maximum number of the mid-side nodes
+c     MAXND3S - maximum number of the middle nodes
+c     MAXDF2S - maximum number of the mid-side nodes dof
+c     MAXDF3S - maximum number of the middle nodes dof
+c     MAXCONS - maximum number of constrained nodes
+c     MAXEQS  - maximum number of equations
+c     MAXWORK - size of the working array for the solver
+c
+

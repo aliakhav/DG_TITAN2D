@@ -1,0 +1,3 @@
+CMDLINE=CC -DEFAULT:abi=n32:isa=mips4:proc=r10k -I. -g -woff all -LANG:std -c -n32 ../csrc/datstr/node.C -o node_IRIX64_C.o
+PWD=/scratch/cnichita/DG_SIMULATION/cobj
+----

@@ -1,0 +1,3 @@
+CMDLINE=CC -DEFAULT:abi=n32:isa=mips4:proc=r10k -I. -g -woff all -LANG:std -c -n32 ../csrc/repartition/BSFC_update_and_send_elements.C -o BSFC_update_and_send_elements_IRIX64_C.o
+PWD=/scratch/cnichita/DG_SIMULATION/cobj
+----

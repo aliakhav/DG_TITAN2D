@@ -1,0 +1,471 @@
+c---------------------------------------------------------------------
+c   routine name       - cnst
+c   latest revision    - jan 1990
+c   purpose            - routine initiaties constants for
+c                           - interpolation (array RRR)
+c                           - Gaussian integration
+c                           - Gaussian - log integration
+c   usage              - call cnst
+c   arguments          - none
+c   required  routines - none
+c---------------------------------------------------------------------
+c
+      subroutine cnst
+c
+      include '../com_fem/syscom.blk'
+      include '../com_fem/cint.blk'
+      include '../com_fem/crrr.blk'
+c
+      dimension fact(10)
+c      
+c  interpolation constants (array RRR)
+c  calculate auxiliary factors
+c      
+      fact(1)=1.d0
+      do 10 i=2,10
+        fact(i)=fact(i-1)/i
+   10 continue
+c
+c  filling up matrix RRR
+c
+      call setz(RRR,200)
+c
+      na=10
+      RRR(1,1,1)=.5d0
+      RRR(1,1,2)=.5d0
+
+      do 20 i=2,na,2
+        RRR(i,1,1)= -1.d0
+        RRR(i,1,2)= -1.d0
+   20 continue
+c
+      xmlt= .5
+      do 40 i=2,na
+        xmlt=xmlt*  .5
+        RRR(i,i,1)=xmlt
+        RRR(i,i,2)=xmlt
+        one=1
+        do 30 j=i-1,2,-1
+          one=-one
+          RRR(i,j,2)=xmlt    *fact(i-j)
+          RRR(i,j,1)=xmlt*one*fact(i-j)
+   30    continue
+   40  continue
+
+      do 60 i=2,na
+        do 50 k=2,i
+          RRR(i,k,1) = RRR(i,k,1)*fact(k)/fact(i)
+          RRR(i,k,2) = RRR(i,k,2)*fact(k)/fact(i)
+   50   continue
+   60 continue
+c
+c  constants for regular gaussian integration
+c
+      XIGAUS(1,1)=0.
+c
+      XIGAUS(1,2)=-.5773502691896257d0
+      XIGAUS(2,2)= .5773502691896257d0
+c
+      XIGAUS(1,3)=-.7745966692414833d0
+      XIGAUS(2,3)= .0               d0
+      XIGAUS(3,3)= .7745966692414833d0
+c
+      XIGAUS(1,4)=-.8611363115940525d0
+      XIGAUS(2,4)=-.3399810435848562d0
+      XIGAUS(3,4)= .3399810435848562d0
+      XIGAUS(4,4)= .8611363115940525d0
+c
+      XIGAUS(1,5)=-.9061798459386639d0
+      XIGAUS(2,5)=-.5384693101056830d0
+      XIGAUS(3,5)= .0               d0
+      XIGAUS(4,5)= .5384693101056830d0
+      XIGAUS(5,5)= .9061798459386639d0
+c
+      XIGAUS(1,6)=-.9324695142031520d0
+      XIGAUS(2,6)=-.6612093864662645d0
+      XIGAUS(3,6)=-.2386191860831969d0
+      XIGAUS(4,6)= .2386191860831969d0
+      XIGAUS(5,6)= .6612093864662645d0
+      XIGAUS(6,6)= .9324695142031520d0
+c
+      XIGAUS(1,7)=-.9491079123427585d0 
+      XIGAUS(2,7)=-.7415311855993944d0
+      XIGAUS(3,7)=-.4058451513773971d0
+      XIGAUS(4,7)= .0               d0
+      XIGAUS(5,7)= .4058451513773971d0
+      XIGAUS(6,7)= .7415311855993944d0
+      XIGAUS(7,7)= .9491079123427585d0
+c
+      XIGAUS(1,8)=-.9602898564975362d0
+      XIGAUS(2,8)=-.7966664774136267d0
+      XIGAUS(3,8)=-.5255324099163289d0
+      XIGAUS(4,8)=-.1834346424956498d0
+      XIGAUS(5,8)= .1834346424956498d0
+      XIGAUS(6,8)= .5255324099163289d0
+      XIGAUS(7,8)= .7966664774136267d0
+      XIGAUS(8,8)= .9602898564975362d0
+c
+      XIGAUS(1,9)=-.9681602395076260d0
+      XIGAUS(2,9)=-.8360311073266357d0
+      XIGAUS(3,9)=-.6133714327005903d0
+      XIGAUS(4,9)=-.3242534234038089d0
+      XIGAUS(5,9)= .0               d0
+      XIGAUS(6,9)= .3242534234038089d0
+      XIGAUS(7,9)= .6133714327005903d0
+      XIGAUS(8,9)= .8360311073266357d0
+      XIGAUS(9,9)= .9681602395076260d0
+c
+      XIGAUS(1 ,10)=-.9739065285171720d0
+      XIGAUS(2 ,10)=-.8650633666889845d0
+      XIGAUS(3 ,10)=-.6794095682990244d0
+      XIGAUS(4 ,10)=-.4333953941292471d0
+      XIGAUS(5 ,10)=-.1488743389816312d0
+      XIGAUS(6 ,10)= .1488743389816312d0
+      XIGAUS(7 ,10)= .4333953941292471d0
+      XIGAUS(8 ,10)= .6794095682990244d0
+      XIGAUS(9 ,10)= .8650633666889845d0
+      XIGAUS(10,10)= .9739065285171720d0
+c
+      WAGAUS(1,1)=2.               d0
+c
+      WAGAUS(1,2)=1.               d0
+      WAGAUS(2,2)=1.               d0
+c
+      WAGAUS(1,3)=.5555555555555555d0
+      WAGAUS(2,3)=.8888888888888888d0
+      WAGAUS(3,3)=.5555555555555555d0
+c
+      WAGAUS(1,4)=.3478548451374538d0
+      WAGAUS(2,4)=.6521451548625461d0
+      WAGAUS(3,4)=.6521451548625461d0
+      WAGAUS(4,4)=.3478548451374538d0
+c
+      WAGAUS(1,5)=.2369268850561890d0
+      WAGAUS(2,5)=.4786286704993664d0
+      WAGAUS(3,5)=.5688888888888888d0
+      WAGAUS(4,5)=.4786286704993664d0
+      WAGAUS(5,5)=.2369268850561890d0
+c
+      WAGAUS(1,6)=.1713244923791703d0
+      WAGAUS(2,6)=.3607615730481386d0
+      WAGAUS(3,6)=.4679139345726910d0
+      WAGAUS(4,6)=.4679139345726910d0
+      WAGAUS(5,6)=.3607615730481386d0
+      WAGAUS(6,6)=.1713244923791703d0
+c
+      WAGAUS(1,7)=.1294849661688696d0
+      WAGAUS(2,7)=.2797053914892766d0
+      WAGAUS(3,7)=.3818300505051189d0
+      WAGAUS(4,7)=.4179591836734693d0
+      WAGAUS(5,7)=.3818300505051189d0
+      WAGAUS(6,7)=.2797053914892766d0
+      WAGAUS(7,7)=.1294849661688696d0
+c
+      WAGAUS(1,8)=.1012285362903762d0
+      WAGAUS(2,8)=.2223810344533744d0
+      WAGAUS(3,8)=.3137066458778872d0
+      WAGAUS(4,8)=.3626837833783619d0
+      WAGAUS(5,8)=.3626837833783619d0
+      WAGAUS(6,8)=.3137066458778872d0
+      WAGAUS(7,8)=.2223810344533744d0
+      WAGAUS(8,8)=.1012285362903762d0
+c
+      WAGAUS(1,9)=.0812743883615744d0
+      WAGAUS(2,9)=.1806481606948574d0
+      WAGAUS(3,9)=.2606106964029354d0
+      WAGAUS(4,9)=.3123470770400028d0
+      WAGAUS(5,9)=.3302393550012597d0
+      WAGAUS(6,9)=.3123470770400028d0
+      WAGAUS(7,9)=.2606106964029354d0
+      WAGAUS(8,9)=.1806481606948574d0
+      WAGAUS(9,9)=.0812743883615744d0
+c
+      WAGAUS(1, 10)=.0666713443086881d0
+      WAGAUS(2, 10)=.1494513491505806d0
+      WAGAUS(3, 10)=.2190863625159820d0
+      WAGAUS(4, 10)=.2692667193099963d0
+      WAGAUS(5, 10)=.2955242247147528d0
+      WAGAUS(6, 10)=.2955242247147528d0
+      WAGAUS(7, 10)=.2692667193099963d0
+      WAGAUS(8, 10)=.2190863625159820d0
+      WAGAUS(9, 10)=.1494513491505806d0
+      WAGAUS(10,10)=.0666713443086881d0
+c      
+c     constants for ln(1/r) irregular gaussian integration
+c
+
+      XILOGA(1,2)= .1120088061669761d 0
+      XILOGA(2,2)= .6022769081187381d 0
+c
+      XILOGA(1,3)= .6389079308732540d-1
+      XILOGA(2,3)= .3689970637156187d 0
+      XILOGA(3,3)= .7668803039389414d 0
+c
+      XILOGA(1,4)= .4144848019938322d-1
+      XILOGA(2,4)= .2452749143206022d 0
+      XILOGA(3,4)= .5561654535602758d 0
+      XILOGA(4,4)= .8489823945328517d 0
+c
+      XILOGA(1,5)= .2913447215197205d-1
+      XILOGA(2,5)= .1739772133208976d 0
+      XILOGA(3,5)= .4117025202849020d 0
+      XILOGA(4,5)= .6773141745828203d 0
+      XILOGA(5,5)= .8947713610310082d 0
+c
+      XILOGA(1,6)= .2163400584411694d-1
+      XILOGA(2,6)= .1295833911549507d 0
+      XILOGA(3,6)= .3140204499147655d 0
+      XILOGA(4,6)= .5386572173518021d 0
+      XILOGA(5,6)= .7569153373774028d 0
+      XILOGA(6,6)= .9226688513721202d 0
+c
+      XILOGA(1,7)= .1671935540825851d-1
+      XILOGA(2,7)= .1001856779156751d 0
+      XILOGA(3,7)= .2462942462079305d 0
+      XILOGA(4,7)= .4334634932570331d 0
+      XILOGA(5,7)= .6323509880477660d 0
+      XILOGA(6,7)= .8111186267401055d 0
+      XILOGA(7,7)= .9408481667433477d 0
+c
+      XILOGA(1,8)= .1332024416089246d-1
+      XILOGA(2,8)= .7975042901389493d-1
+      XILOGA(3,8)= .1978710293261880d 0
+      XILOGA(4,8)= .3541539943519094d 0
+      XILOGA(5,8)= .5294585752349172d 0
+      XILOGA(6,8)= .7018145299390999d 0
+      XILOGA(7,8)= .8493793204411066d 0
+      XILOGA(8,8)= .9533264500563597d 0
+c
+      XILOGA(1,9)= .1086933608417547d-1
+      XILOGA(2,9)= .6498366633800793d-1
+      XILOGA(3,9)= .1622293980238829d 0
+      XILOGA(4,9)= .2937499039716746d 0
+      XILOGA(5,9)= .4466318819054680d 0
+      XILOGA(6,9)= .6054816627761286d 0
+      XILOGA(7,9)= .7541101371571635d 0
+      XILOGA(8,9)= .8772658288358382d 0
+      XILOGA(9,9)= .9622505594102814d 0
+c
+      XILOGA(1, 10)= .9042630962199650d-2
+      XILOGA(2, 10)= .5397126622250062d-1
+      XILOGA(3, 10)= .1353118246392507d 0
+      XILOGA(4, 10)= .2470524162871598d 0
+      XILOGA(5, 10)= .3802125396093323d 0
+      XILOGA(6, 10)= .5237923179718432d 0
+      XILOGA(7, 10)= .6657752055164245d 0
+      XILOGA(8, 10)= .7941904160119662d 0
+      XILOGA(9, 10)= .8981610912190035d 0
+      XILOGA(10,10)= .9688479887186335d 0
+c
+      WALOGA(1,2)= .7185393190303844d 0
+      WALOGA(2,2)= .2814606809696155d 0
+c
+      WALOGA(1,3)= .5134045522323633d 0
+      WALOGA(2,3)= .3919800412014875d 0
+      WALOGA(3,3)= .9461540656614912d-1
+c
+      WALOGA(1,4)= .3834640681451351d 0
+      WALOGA(2,4)= .3868753177747626d 0
+      WALOGA(3,4)= .1904351269501424d 0
+      WALOGA(4,4)= .3922548712995983d-1
+c
+      WALOGA(1,5)= .2978934717828944d 0
+      WALOGA(2,5)= .3497762265132241d 0
+      WALOGA(3,5)= .2344882900440524d 0
+      WALOGA(4,5)= .9893045951663314d-1
+      WALOGA(5,5)= .1891155214319579d-1
+c
+      WALOGA(1,6)= .2387636625785475d 0
+      WALOGA(2,6)= .3082865732739467d 0
+      WALOGA(3,6)= .2453174265632103d 0
+      WALOGA(4,6)= .1420087565664766d 0
+      WALOGA(5,6)= .5545462232488629d-1
+      WALOGA(6,6)= .1016895869293227d-1
+c
+      WALOGA(1,7)= .1961693894252482d 0
+      WALOGA(2,7)= .2703026442472729d 0
+      WALOGA(3,7)= .2396818730076909d 0
+      WALOGA(4,7)= .1657757748104329d 0
+      WALOGA(5,7)= .8894322713765796d-1
+      WALOGA(6,7)= .3319430435657106d-1
+      WALOGA(7,7)= .5932787015125923d-2
+c
+      WALOGA(1,8)= .1644166047280028d 0
+      WALOGA(2,8)= .2375256100233060d 0
+      WALOGA(3,8)= .2268419844319191d 0
+      WALOGA(4,8)= .1757540790060702d 0
+      WALOGA(5,8)= .1129240302467590d 0
+      WALOGA(6,8)= .5787221071778207d-1
+      WALOGA(7,8)= .2097907374213297d-1
+      WALOGA(8,8)= .3686407104027619d-2
+c
+      WALOGA(1,9)= .1400684387481347d 0
+      WALOGA(2,9)= .2097722052010304d 0
+      WALOGA(3,9)= .2114271498966027d 0
+      WALOGA(4,9)= .1771562339380799d 0
+      WALOGA(5,9)= .1277992280332054d 0
+      WALOGA(6,9)= .7847890261156217d-1
+      WALOGA(7,9)= .3902250498539909d-1
+      WALOGA(8,9)= .1386729554959302d-1
+      WALOGA(9,9)= .2408041036392311d-2
+c
+      WALOGA(1, 10)= .1209551319545705d 0
+      WALOGA(2, 10)= .1863635425640718d 0
+      WALOGA(3, 10)= .1956608732777599d 0
+      WALOGA(4, 10)= .1735771421829069d 0
+      WALOGA(5, 10)= .1356956729954842d 0
+      WALOGA(6, 10)= .9364675853811052d-1
+      WALOGA(7, 10)= .5578772735141587d-1
+      WALOGA(8, 10)= .2715981089923333d-1
+      WALOGA(9, 10)= .9515182602848514d-2
+      WALOGA(10,10)= .1638157633598263d-2
+c
+c  gauss-lobatto one-dimensional integration rule
+c
+c  polynomials of up to first order...
+c
+      XILOBA(1,2) = -1.
+      XILOBA(2,2) = -XILOBA(1,2)
+c
+      WLOBAT(1,2) = 1.
+      WLOBAT(2,2) = WLOBAT(1,2)
+c
+c  polynomials of up to third order
+c
+      XILOBA(1,3) = -1.
+      XILOBA(2,3) = 0.
+      XILOBA(3,3) = -XILOBA(1,3)
+c
+      WLOBAT(1,3) = 1./3.
+      WLOBAT(2,3) = 4./3.
+      WLOBAT(3,3) = WLOBAT(1,3)
+c
+c  polynomials of up to fifth order
+c
+      XILOBA(1,4) = - 1.
+      XILOBA(2,4) = - .44721360
+      XILOBA(3,4) = - XILOBA(2,4)
+      XILOBA(4,4) = - XILOBA(1,4)
+c
+      WLOBAT(1,4) = .16666667
+      WLOBAT(2,4) = .83333333
+      WLOBAT(3,4) = WLOBAT(2,4)
+      WLOBAT(4,4) = WLOBAT(1,4)
+c
+c  polynomials of up to seventh order
+c
+      XILOBA(1,5) = -1.
+      XILOBA(2,5) = -sqrt(3./7.)
+      XILOBA(3,5) = 0.
+      XILOBA(4,5) = -XILOBA(2,5)
+      XILOBA(5,5) = -XILOBA(1,5)
+c
+      WLOBAT(1,5) = .1
+      WLOBAT(2,5) = 49./90.
+      WLOBAT(3,5) = 32./45.
+      WLOBAT(4,5) = WLOBAT(2,5)
+      WLOBAT(5,5) = WLOBAT(1,5)
+c
+c  polynomials of up to ninth order
+c
+      XILOBA(1,6) = -1.
+      XILOBA(2,6) = -.76505532
+      XILOBA(3,6) = -.28523152
+      XILOBA(4,6) = - XILOBA(3,6)
+      XILOBA(5,6) = - XILOBA(2,6)
+      XILOBA(6,6) = - XILOBA(1,6)
+c
+      WLOBAT(1,6) = .06666667
+      WLOBAT(2,6) = .37847495
+      WLOBAT(3,6) = .55485838
+      WLOBAT(4,6) = WLOBAT(3,6)
+      WLOBAT(5,6) = WLOBAT(2,6)
+      WLOBAT(6,6) = WLOBAT(1,6)
+c
+c  polynomials of up to eleventh order
+c
+      XILOBA(1,7) = -1.
+      XILOBA(2,7) = -.83022390
+      XILOBA(3,7) = -.46884879
+      XILOBA(4,7) = 0.
+      XILOBA(5,7) = -XILOBA(3,7)
+      XILOBA(6,7) = -XILOBA(2,7)
+      XILOBA(7,7) = -XILOBA(1,7)
+c
+      WLOBAT(1,7) = .04761904
+      WLOBAT(2,7) = .27682604
+      WLOBAT(3,7) = .43174538
+      WLOBAT(4,7) = .48761904
+      WLOBAT(5,7) = WLOBAT(3,7)
+      WLOBAT(6,7) = WLOBAT(2,7)
+      WLOBAT(7,7) = WLOBAT(1,7)
+c
+c  polynomials of up to thirteenth order
+c
+      XILOBA(1,8) = -1.
+      XILOBA(2,8) = -.87174015
+      XILOBA(3,8) = -.59170018
+      XILOBA(4,8) = -.20929922
+      XILOBA(5,8) = -XILOBA(4,8)
+      XILOBA(6,8) = -XILOBA(3,8)
+      XILOBA(7,8) = -XILOBA(2,8)
+      XILOBA(8,8) = -XILOBA(1,8)
+c
+      WLOBAT(1,8) = .03571428
+      WLOBAT(2,8) = .21070422
+      WLOBAT(3,8) = .34112270
+      WLOBAT(4,8) = .41245880
+      WLOBAT(5,8) = WLOBAT(4,8)
+      WLOBAT(6,8) = WLOBAT(3,8)
+      WLOBAT(7,8) = WLOBAT(2,8)
+      WLOBAT(8,8) = WLOBAT(1,8)
+c
+c  polynomials of up to fifteenth order
+c
+      XILOBA(1,9) = -1.
+      XILOBA(2,9) = -.8997579954
+      XILOBA(3,9) = -.6771862795
+      XILOBA(4,9) = -.3631174638
+      XILOBA(5,9) = 0.
+      XILOBA(6,9) = -XILOBA(4,9)
+      XILOBA(7,9) = -XILOBA(3,9)
+      XILOBA(8,9) = -XILOBA(2,9)
+      XILOBA(9,9) = -XILOBA(1,9)
+c
+      WLOBAT(1,9) = .0277777778
+      WLOBAT(2,9) = .1654953616
+      WLOBAT(3,9) = .2745387126
+      WLOBAT(4,9) = .3464285110
+      WLOBAT(5,9) = .3715192744
+      WLOBAT(6,9) = WLOBAT(4,9)
+      WLOBAT(7,9) = WLOBAT(3,9)
+      WLOBAT(8,9) = WLOBAT(2,9)
+      WLOBAT(9,9) = WLOBAT(1,9)
+c
+c  polynomials up to seventeenth order
+c
+      XILOBA(1,10) = -1.
+      XILOBA(2,10) = -.9195339082
+      XILOBA(3,10) = -.7387738651
+      XILOBA(4,10) = -.4779249498
+      XILOBA(5,10) = -.1652789577
+      XILOBA(6,10) = -XILOBA(5,10)
+      XILOBA(7,10) = -XILOBA(4,10)
+      XILOBA(8,10) = -XILOBA(3,10)
+      XILOBA(9,10) = -XILOBA(2,10)
+      XILOBA(10,10)= -XILOBA(1,10)
+c
+      WLOBAT(1,10) = .0222222222
+      WLOBAT(2,10) = .1333059908
+      WLOBAT(3,10) = .2248893420
+      WLOBAT(4,10) = .2920426836
+      WLOBAT(5,10) = .3275397612
+      WLOBAT(6,10) = WLOBAT(5,10)
+      WLOBAT(7,10) = WLOBAT(4,10)
+      WLOBAT(8,10) = WLOBAT(3,10)
+      WLOBAT(9,10) = WLOBAT(2,10)
+      WLOBAT(10,10)= WLOBAT(1,10)
+c      
+      return
+      end
+c

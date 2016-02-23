@@ -1,0 +1,13 @@
+      common /cint/ XIGAUS(10,10),WAGAUS(10,10),
+     .              XILOGA(10,10),WALOGA(10,10),
+     .              XILOBA(10,10),WLOBAT(10,10)
+c
+c  explanation of variables :
+c     XIGAUS,WAGAUS   -   integration points and weights for Gaussian
+c                         Legenda  integration (over interval(-1,1))
+c     XILOGA,WALOGA   -   integration points and weights for Gaussian
+c                         integration with weakly singular weight
+c                         log(1/x) (over interval (0,1))
+c     XILOBA,WALOBA   -   integration points and weights for Gaussian
+c                         Lobato integration (over interval(-1,1))
+c

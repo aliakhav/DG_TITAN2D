@@ -1,0 +1,574 @@
+bin/PRE/preproc.f:c     simple code to generate topographical data
+bin/oldPRE/preproc.f:c     simple code to generate topographical data
+csrc/geoflow/slopelimit.C:      double phi[10],dphi[10][2];
+csrc/geoflow/slopelimit.C:      shape2dg_(&order,&xi0,&xi1,phi);
+csrc/geoflow/slopelimit.C:      dshap2dg_(&order,&xi0,&xi1,&dphi[0][0]);
+csrc/geoflow/slopelimit.C:      double cosphi,tandel;
+csrc/geoflow/slopelimit.C:      cosphi= cos(matprops_ptr->intfrict); 
+csrc/geoflow/slopelimit.C:	  Up[in]=Up[in]+(*(ep->get_temp_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C:	    Up2[in]=Up2[in]+(*(ep2->get_temp_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C:	  U[in] =U[in]+ (*(get_temp_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C:	    (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimit.C:	    (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimit.C:	kactx=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit.C:	      sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi))-1.0;
+csrc/geoflow/slopelimit.C:	kacty=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit.C:	      sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi))-1.0;
+csrc/geoflow/slopelimit.C:	  Un[in]=Un[in]+(*(en->get_temp_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C:	    Un2[in]=Un2[in]+(*(en2->get_temp_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C~:      double phi[10],dphi[10][2];
+csrc/geoflow/slopelimit.C~:      shape2dg_(&order,&xi0,&xi1,phi);
+csrc/geoflow/slopelimit.C~:      dshap2dg_(&order,&xi0,&xi1,&dphi[0][0]);
+csrc/geoflow/slopelimit.C~:      double cosphi,tandel;
+csrc/geoflow/slopelimit.C~:      cosphi= cos(matprops_ptr->intfrict); 
+csrc/geoflow/slopelimit.C~:	  Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C~:	    Up2[in]=Up2[in]+(*(ep2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C~:	  U[in] =U[in]+ (*(get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C~:	    (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimit.C~:	    (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimit.C~:	kactx=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit.C~:	      sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi))-1.0;
+csrc/geoflow/slopelimit.C~:	kacty=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit.C~:	      sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi))-1.0;
+csrc/geoflow/slopelimit.C~:	  Un[in]=Un[in]+(*(en->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit.C~:	    Un2[in]=Un2[in]+(*(en2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimitRefineWorking.C:      double phi[10],dphi[10][2];
+csrc/geoflow/slopelimitRefineWorking.C:      shape2dg_(&order,&xil0,&xil1,phi);
+csrc/geoflow/slopelimitRefineWorking.C:      dshap2dg_(&order,&xil0,&xil1,&dphi[0][0]);
+csrc/geoflow/slopelimitRefineWorking.C:	  Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimitRefineWorking.C:	    Up2[in]=Up2[in]+(*(ep2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimitRefineWorking.C:	  U[in]=U[in]+(*(get_el_solution()+i*EQUATIONS+in))*phi[i];	
+csrc/geoflow/slopelimitRefineWorking.C:	      (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimitRefineWorking.C:	      (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimitRefineWorking.C:	  Un[in]=Un[in]+(*(en->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimitRefineWorking.C:	    Un2[in]=Un2[in]+(*(en2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_global.C:      double phi[10],dphi[10][2];
+csrc/geoflow/slopelimit_global.C:      shape2dg_(&order,&xil0,&xil1,phi);
+csrc/geoflow/slopelimit_global.C:      dshap2dg_(&order,&xil0,&xil1,&dphi[0][0]);
+csrc/geoflow/slopelimit_global.C:	  Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_global.C:	    Up2[in]=Up2[in]+(*(ep2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_global.C:	  U[in]=U[in]+(*(get_el_solution()+i*EQUATIONS+in))*phi[i];	
+csrc/geoflow/slopelimit_global.C:	      (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimit_global.C:	      (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimit_global.C:	  Un[in]=Un[in]+(*(en->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_global.C:	    Un2[in]=Un2[in]+(*(en2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_interp.C:	   shape2dg_(&order,&xil0,&xil1,phi);
+csrc/geoflow/slopelimit_interp.C:	       Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_local.C:      double phi[10],dphi[10][2];
+csrc/geoflow/slopelimit_local.C:      shape2dg_(&order,&xil0,&xil1,phi);
+csrc/geoflow/slopelimit_local.C:      dshap2dg_(&order,&xil0,&xil1,&dphi[0][0]);
+csrc/geoflow/slopelimit_local.C:      //        Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_local.C:	//	    Up2[in]=Up2[in]+(*(ep2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_local.C:	//	  U[in]=U[in]+(*(get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_local.C:	//	      (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimit_local.C:	//	      (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimit_local.C:	//     Un[in]=Un[in]+(*(en->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_local.C:	  // Un2[in]=Un2[in]+(*(en2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_slopelimit.C:      double phi[10],phil[10],phir[10],phib[10],phit[10],dphi[10][2];
+csrc/geoflow/slopelimit_slopelimit.C:      shape2dg_(&order,&xi0,&xi1,phi);
+csrc/geoflow/slopelimit_slopelimit.C:      shape2dg_(&order,&xil0,&xil1,phil);
+csrc/geoflow/slopelimit_slopelimit.C:      shape2dg_(&order,&xir0,&xir1,phir);
+csrc/geoflow/slopelimit_slopelimit.C:      shape2dg_(&order,&xit0,&xit1,phit);
+csrc/geoflow/slopelimit_slopelimit.C:      shape2dg_(&order,&xib0,&xib1,phib);
+csrc/geoflow/slopelimit_slopelimit.C:      dshap2dg_(&order,&xi0,&xi1,&dphi[0][0]);
+csrc/geoflow/slopelimit_slopelimit.C:      double cosphi,tandel;
+csrc/geoflow/slopelimit_slopelimit.C:      cosphi= cos(matprops_ptr->intfrict); 
+csrc/geoflow/slopelimit_slopelimit.C:	  Up[in]=Up[in]+(*(ep->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_slopelimit.C:	    Up2[in]=Up2[in]+(*(ep2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_slopelimit.C:	  U[in] =U[in]+ (*(get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_slopelimit.C:	  Ul[in]=Ul[in]+(*(get_el_solution()+i*EQUATIONS+in))*phil[i];
+csrc/geoflow/slopelimit_slopelimit.C:	  Ur[in]=Ur[in]+(*(get_el_solution()+i*EQUATIONS+in))*phir[i];
+csrc/geoflow/slopelimit_slopelimit.C:	  Ub[in]=Ub[in]+(*(get_el_solution()+i*EQUATIONS+in))*phib[i];
+csrc/geoflow/slopelimit_slopelimit.C:	  Ut[in]=Ut[in]+(*(get_el_solution()+i*EQUATIONS+in))*phit[i];
+csrc/geoflow/slopelimit_slopelimit.C:	      (dphi[i][0]*rjacinv[0][0]+dphi[i][1]*rjacinv[0][1]);
+csrc/geoflow/slopelimit_slopelimit.C:	      (dphi[i][0]*rjacinv[1][0]+dphi[i][1]*rjacinv[1][1]);
+csrc/geoflow/slopelimit_slopelimit.C:	  kactx=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit_slopelimit.C:		sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi)) -1.0;
+csrc/geoflow/slopelimit_slopelimit.C:          kacty=(2.0/(cosphi*cosphi))*(1.0-c_sgn(vel)*
+csrc/geoflow/slopelimit_slopelimit.C:		sqrt(1.0-(1.0+tandel*tandel)*cosphi*cosphi)) -1.0;
+csrc/geoflow/slopelimit_slopelimit.C:	    Un[in]=Un[in]+(*(en->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/slopelimit_slopelimit.C:	      Un2[in]=Un2[in]+(*(en2->get_el_solution()+i*EQUATIONS+in))*phi[i];
+csrc/geoflow/step.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step.C:  double        dphi[20];
+csrc/geoflow/step.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step.C:	    //printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step.C:			el_rhs[k*EQUATIONS+in]+phi[k]*flux[in];
+csrc/geoflow/step.C:		      flux_int[in][i]= flux_int[in][i]+ dabs(phi[k]*flux[in]);
+csrc/geoflow/step.C.ps:(  double xi[10],wa[10],phi[10],nphi[10];) s
+csrc/geoflow/step.C.ps:(  double        dphi[20];) s
+csrc/geoflow/step.C.ps:(          shape2dg_\(&order,&xil,&eta,phi\);) s
+csrc/geoflow/step.C.ps:(          // dshap2dg_\(&order,&xil,&eta,dphi\);) s
+csrc/geoflow/step.C.ps:(              h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];) s
+csrc/geoflow/step.C.ps:(              h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];) s
+csrc/geoflow/step.C.ps:(              h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];) s
+csrc/geoflow/step.C.ps:(          shape2dg_\(&neigh_order,&xin,&etan,nphi\);) s
+csrc/geoflow/step.C.ps:(              hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];) s
+csrc/geoflow/step.C.ps:(              hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];) s
+csrc/geoflow/step.C.ps:(              hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];) s
+csrc/geoflow/step.C.ps:(re neighbor %e %e, %e %e %e\\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0) s
+csrc/geoflow/step.C.ps:(],nphi[1],nphi[2]\);) s
+csrc/geoflow/step.C.ps:(          double phi_grav[4];  // using integrated hierarchical Legendre shape functions for) s
+csrc/geoflow/step.C.ps:(          shape2_\(order_grav, &xil, &eta, phi_grav\);) s
+csrc/geoflow/step.C.ps:(              grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];) s
+csrc/geoflow/step.C.ps:(              grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];) s
+csrc/geoflow/step.C.ps:(              grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];) s
+csrc/geoflow/step.C.ps:(                 el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];) s
+csrc/geoflow/step.C.ps:(                  flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_) s
+csrc/geoflow/step.C.ps:(            printf\("phi %e %e %e \\n",phi[0],phi[1],phi[2]\);) s
+csrc/geoflow/step.C.ps:(        printf\("elmloc %d %d,\\n side %d, integrated fluxes %e %e %e phi %e\\n",) s
+csrc/geoflow/step.C.ps:(               i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]\);) s
+csrc/geoflow/step.C~:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step.C~:  double        dphi[20];
+csrc/geoflow/step.C~:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step.C~:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step.C~:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step.C~:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step.C~:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step.C~:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step.C~:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step.C~:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step.C~:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step.C~:	    //printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step.C~:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step.C~:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step.C~:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step.C~:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step.C~:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step.C~:			el_rhs[k*EQUATIONS+in]+phi[k]*flux[in];
+csrc/geoflow/step.C~:		      flux_int[in][i]= flux_int[in][i]+ dabs(phi[k]*flux[in]);
+csrc/geoflow/stepRK3rd.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/stepRK3rd.C:  double        dphi[20];
+csrc/geoflow/stepRK3rd.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/stepRK3rd.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/stepRK3rd.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/stepRK3rd.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/stepRK3rd.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/stepRK3rd.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/stepRK3rd.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/stepRK3rd.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/stepRK3rd.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/stepRK3rd.C:	    //printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/stepRK3rd.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/stepRK3rd.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/stepRK3rd.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/stepRK3rd.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/stepRK3rd.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/stepRK3rd.C:			el_rhs[k*EQUATIONS+in]+phi[k]*flux[in];
+csrc/geoflow/stepRK3rd.C:		      flux_int[in][i]= flux_int[in][i]+ dabs(phi[k]*flux[in]);
+csrc/geoflow/stepVanLeer.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/stepVanLeer.C:  double        dphi[20];
+csrc/geoflow/stepVanLeer.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/stepVanLeer.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/stepVanLeer.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/stepVanLeer.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/stepVanLeer.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/stepVanLeer.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/stepVanLeer.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/stepVanLeer.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/stepVanLeer.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/stepVanLeer.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/stepVanLeer.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/stepVanLeer.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/stepVanLeer.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/stepVanLeer.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/stepVanLeer.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/stepVanLeer.C:	         el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/stepVanLeer.C:	          flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/stepVanLeer.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/stepVanLeer.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/stepVanLeer.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/stepWorking.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/stepWorking.C:  double        dphi[20];
+csrc/geoflow/stepWorking.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/stepWorking.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/stepWorking.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/stepWorking.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/stepWorking.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/stepWorking.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/stepWorking.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/stepWorking.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/stepWorking.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/stepWorking.C:	    //printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/stepWorking.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/stepWorking.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/stepWorking.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/stepWorking.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/stepWorking.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/stepWorking.C:			el_rhs[k*EQUATIONS+in]+phi[k]*flux[in];
+csrc/geoflow/stepWorking.C:		      flux_int[in][i]= flux_int[in][i]+ dabs(phi[k]*flux[in]);
+csrc/geoflow/step_Poulique_fluxes.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_Poulique_fluxes.C:  double        dphi[20];
+csrc/geoflow/step_Poulique_fluxes.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_Poulique_fluxes.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_Poulique_fluxes.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_Poulique_fluxes.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_Poulique_fluxes.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step_Poulique_fluxes.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_Poulique_fluxes.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_Poulique_fluxes.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_Poulique_fluxes.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_Poulique_fluxes.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_Poulique_fluxes.C:		    flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/step_Poulique_fluxes.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/step_Poulique_fluxes.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/step_Poulique_fluxes.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/step_flux_debug.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_flux_debug.C:  double        dphi[20];
+csrc/geoflow/step_flux_debug.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_flux_debug.C:	  dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_flux_debug.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_flux_debug.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_flux_debug.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_flux_debug.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_flux_debug.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_flux_debug.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_flux_debug.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_flux_debug.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_flux_debug.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_flux_debug.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_flux_debug.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_flux_debug.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_flux_debug.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_flux_debug.C:		    flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_flux_debug.C:		    flux_int2[k*EQUATIONS+in]=phi[k]*flux[in];
+csrc/geoflow/step_flux_debug.C:	printf("elmloc %d %d,\n side %d, averaged integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/step_flux_debug.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/step_ivden.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_ivden.C:  double        dphi[20];
+csrc/geoflow/step_ivden.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_ivden.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_ivden.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_ivden.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_ivden.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_ivden.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_ivden.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_ivden.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_ivden.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_ivden.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step_ivden.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_ivden.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_ivden.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_ivden.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_ivden.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_ivden.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_ivden.C:		    flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/step_ivden.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/step_ivden.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/step_ivden.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/step_ivden.C:    double phi_l=0.5*(kactxy[1]+kactxyn[1])*grav[2]*h[0];
+csrc/geoflow/step_ivden.C:    double phi_r=0.5*(kactxy[1]+kactxyn[1])*grav[2]*hp[0];
+csrc/geoflow/step_ivden.C:    double phi_m=(0.5*(a+ap)+0.25*(h[1]/h[0]-hp[1]/hp[0]))
+csrc/geoflow/step_ivden.C:    if (phi_l<phi_m)
+csrc/geoflow/step_ivden.C:      que_l=sqrt((phi_l+phi_m)*phi_m/(2*phi_l*phi_l));
+csrc/geoflow/step_ivden.C:    if (phi_l>=phi_m)
+csrc/geoflow/step_ivden.C:    if (phi_r<phi_m)
+csrc/geoflow/step_ivden.C:      que_r=sqrt((phi_r+phi_m)*phi_m/(2*phi_r*phi_r));
+csrc/geoflow/step_ivden.C:    if (phi_r>=phi_m)
+csrc/geoflow/step_ivden.C:    double phi_l=0.5*(kactxy[1]+kactxyn[1])*grav[2]*h[0];
+csrc/geoflow/step_ivden.C:    double phi_r=0.5*(kactxy[1]+kactxyn[1])*grav[2]*hp[0];
+csrc/geoflow/step_ivden.C:    double phi_m=(0.5*(a+ap)+0.25*(0.-hp[1]/hp[0]))
+csrc/geoflow/step_ivden.C:    if (phi_l<phi_m)
+csrc/geoflow/step_ivden.C:      que_l=sqrt((phi_l+phi_m)*phi_m/(2*phi_l*phi_l));
+csrc/geoflow/step_ivden.C:    if (phi_l>=phi_m)
+csrc/geoflow/step_ivden.C:    if (phi_r<phi_m)
+csrc/geoflow/step_ivden.C:      que_r=sqrt((phi_r+phi_m)*phi_m/(2*phi_r*phi_r));
+csrc/geoflow/step_ivden.C:    if (phi_r>=phi_m)
+csrc/geoflow/step_ivden.C:    double phi_l=0.5*(kactxy[1]+kactxyn[1])*grav[2]*h[0];
+csrc/geoflow/step_ivden.C:    double phi_r=0.5*(kactxy[1]+kactxyn[1])*grav[2]*hp[0];
+csrc/geoflow/step_ivden.C:    double phi_m=(0.5*(a+ap)+0.25*(h[1]/h[0]-0.))
+csrc/geoflow/step_ivden.C:    if (phi_l<phi_m)
+csrc/geoflow/step_ivden.C:      que_l=sqrt((phi_l+phi_m)*phi_m/(2*phi_l*phi_l));
+csrc/geoflow/step_ivden.C:    if (phi_l>=phi_m)
+csrc/geoflow/step_ivden.C:    if (phi_r<phi_m)
+csrc/geoflow/step_ivden.C:      que_r=sqrt((phi_r+phi_m)*phi_m/(2*phi_r*phi_r));
+csrc/geoflow/step_ivden.C:    if (phi_r>=phi_m)
+csrc/geoflow/step_ivden.C:    double phi_l=0.5*(kactxy[1]+kactxyn[1])*grav[2]*h[0];
+csrc/geoflow/step_ivden.C:    double phi_r=0.5*(kactxy[1]+kactxyn[1])*grav[2]*hp[0];
+csrc/geoflow/step_ivden.C:    double phi_m=(0.5*(a+ap)+0.25*(h[2]/h[0]-hp[2]/hp[0]))
+csrc/geoflow/step_ivden.C:    if (phi_l<phi_m)
+csrc/geoflow/step_ivden.C:      que_l=sqrt((phi_l+phi_m)*phi_m/(2*phi_l*phi_l));
+csrc/geoflow/step_ivden.C:    if (phi_l>=phi_m)
+csrc/geoflow/step_ivden.C:    if (phi_r<phi_m)
+csrc/geoflow/step_ivden.C:      que_r=sqrt((phi_r+phi_m)*phi_m/(2*phi_r*phi_r));
+csrc/geoflow/step_ivden.C:    if (phi_r>=phi_m)
+csrc/geoflow/step_new.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_new.C:  double        dphi[20];
+csrc/geoflow/step_new.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_new.C:	  dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_new.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_new.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_new.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_new.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_new.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_new.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_new.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_new.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_new.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_new.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_new.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_new.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_new.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in]; 
+csrc/geoflow/step_old.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_old.C:  double        dphi[20];
+csrc/geoflow/step_old.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_old.C:	  dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_old.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_old.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_old.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_old.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_old.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_old.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_old.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_old.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_old.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_old.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_old.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_old.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_old.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in]; 
+csrc/geoflow/step_toro.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_toro.C:  double        dphi[20];
+csrc/geoflow/step_toro.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_toro.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_toro.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_toro.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_toro.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_toro.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_toro.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_toro.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_toro.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_toro.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step_toro.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_toro.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_toro.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_toro.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_toro.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_toro.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_toro.C:		    flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/step_toro.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/step_toro.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/step_toro.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/step_vijayasundaram.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/step_vijayasundaram.C:  double        dphi[20];
+csrc/geoflow/step_vijayasundaram.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/step_vijayasundaram.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/step_vijayasundaram.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/step_vijayasundaram.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/step_vijayasundaram.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/step_vijayasundaram.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/step_vijayasundaram.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/step_vijayasundaram.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/step_vijayasundaram.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/step_vijayasundaram.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/step_vijayasundaram.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/step_vijayasundaram.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/step_vijayasundaram.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/step_vijayasundaram.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/step_vijayasundaram.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/step_vijayasundaram.C:	         el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/step_vijayasundaram.C:	          flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/step_vijayasundaram.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/step_vijayasundaram.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/step_vijayasundaram.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/stepbis.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/stepbis.C:  double        dphi[20];
+csrc/geoflow/stepbis.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/stepbis.C:	  dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/stepbis.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/stepbis.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/stepbis.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/stepbis.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/stepbis.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/stepbis.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/stepbis.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/stepbis.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/stepbis.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/stepbis.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/stepbis.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/stepbis.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/stepbis.C:		    el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/stepbis.C:		    flux_int[in]=flux_int[in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/stepbis.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/stepbis.C:	i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/geoflow/steprecent.C:  double xi[10],wa[10],phi[10],nphi[10];
+csrc/geoflow/steprecent.C:  double        dphi[20];
+csrc/geoflow/steprecent.C:	  shape2dg_(&order,&xil,&eta,phi);
+csrc/geoflow/steprecent.C:	  // dshap2dg_(&order,&xil,&eta,dphi);
+csrc/geoflow/steprecent.C:	      h[0]= h[0]+sol_in[k*EQUATIONS]*phi[k];
+csrc/geoflow/steprecent.C:	      h[1]= h[1]+sol_in[k*EQUATIONS+1]*phi[k];
+csrc/geoflow/steprecent.C:	      h[2]= h[2]+sol_in[k*EQUATIONS+2]*phi[k];
+csrc/geoflow/steprecent.C:	  shape2dg_(&neigh_order,&xin,&etan,nphi);
+csrc/geoflow/steprecent.C:	      hp[0]= hp[0]+sol_neig1[k*EQUATIONS]*nphi[k];
+csrc/geoflow/steprecent.C:	      hp[1]= hp[1]+sol_neig1[k*EQUATIONS+1]*nphi[k];
+csrc/geoflow/steprecent.C:	      hp[2]= hp[2]+sol_neig1[k*EQUATIONS+2]*nphi[k];
+csrc/geoflow/steprecent.C:	    printf("trouble (h<0) h hp %e %e side %d neigh side %d, quadrature %e %e qudrature neighbor %e %e, %e %e %e\n",h[0],hp[0],i,neigh_side,xin,etan,Xnod[0][0],Xnod[0][1],nphi[0],nphi[1],nphi[2]);
+csrc/geoflow/steprecent.C:	  double phi_grav[4];  // using integrated hierarchical Legendre shape functions for gravity
+csrc/geoflow/steprecent.C:	  shape2_(order_grav, &xil, &eta, phi_grav);
+csrc/geoflow/steprecent.C:	      grav[0]=grav[0]+gravnd[k*3]*phi_grav[k];
+csrc/geoflow/steprecent.C:	      grav[1]=grav[1]+gravnd[k*3+1]*phi_grav[k];
+csrc/geoflow/steprecent.C:	      grav[2]=grav[2]+gravnd[k*3+2]*phi_grav[k];
+csrc/geoflow/steprecent.C:	         el_rhs[k*EQUATIONS+in]=el_rhs[k*EQUATIONS+in]+ phi[k]*flux[in];
+csrc/geoflow/steprecent.C:	          flux_int[k*EQUATIONS+in]=flux_int[k*EQUATIONS+in]+ phi[k]*flux[in];//flux_int is the integral of fluxes -- for debugging purpose 
+csrc/geoflow/steprecent.C:	    printf("phi %e %e %e \n",phi[0],phi[1],phi[2]);
+csrc/geoflow/steprecent.C:	printf("elmloc %d %d,\n side %d, integrated fluxes %e %e %e phi %e\n",
+csrc/geoflow/steprecent.C:	       i,flux_int[0], flux_int[1], flux_int[2],phi[0],phi[1],phi[2]);
+csrc/header/properties.h:  double intfrict; //phi_{int}
+csrc/header/properties.h:  double bedfrict; //phi_{bed}
+fsrc/pack_geoflow/elbshal.f:     &     phi, dphi, artvisc, src, diffmat,nkstep,ntime_step)
+fsrc/pack_geoflow/elbshal.f:      double precision xnod(2,9), phi_grav(4), dphi_grav(2,4)
+fsrc/pack_geoflow/elbshal.f:      double precision phi(10),dphi(2,10),artvisc(Nc)
+fsrc/pack_geoflow/elbshal.f:      cosphi= dcos(intfrictang) 
+fsrc/pack_geoflow/elbshal.f:            call shape2dg(nord,xil(ii),xil(jj),phi)
+fsrc/pack_geoflow/elbshal.f:            call dshap2dg(nord,xil(ii),xil(jj),dphi)
+fsrc/pack_geoflow/elbshal.f:c            write(*,*) "check in elbshal, phi",phi(1),phi(2),phi(3)
+fsrc/pack_geoflow/elbshal.f:c            write(*,*) "check in elbshal, dphi ",dphi(1,1),dphi(1,2),
+fsrc/pack_geoflow/elbshal.f:c     &         dphi(1,3),dphi(2,1),dphi(2,2), dphi(2,3) 
+fsrc/pack_geoflow/elbshal.f:            call shape2(iord_grav, xil(ii),xil(jj),phi_grav)
+fsrc/pack_geoflow/elbshal.f:            call dshap2(iord_grav, xil(ii),xil(jj),dphi_grav)
+fsrc/pack_geoflow/elbshal.f:                  U(in)=  U(in) +phi(i)* uK((i-1)*nequ+in)
+fsrc/pack_geoflow/elbshal.f:     &                 *(dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/elbshal.f:     &                 *(dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/elbshal.f:                  grav(in)=grav(in)+gravnd((i-1)*nequ+in)*phi_grav(i) 
+fsrc/pack_geoflow/elbshal.f:               dgdx(1)=dgdx(1)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(1,1)
+fsrc/pack_geoflow/elbshal.f:     &              +dphi_grav(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/elbshal.f:               dgdx(2)=dgdx(2)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(2,1)
+fsrc/pack_geoflow/elbshal.f:     &              +dphi_grav(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/elbshal.f:               inv_curv(1)=inv_curv(1)+curvature((i-1)*2+1)*phi_grav(i)
+fsrc/pack_geoflow/elbshal.f:               inv_curv(2)=inv_curv(2)+curvature(i*2)*phi_grav(i)
+fsrc/pack_geoflow/elbshal.f:               kactx=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/elbshal.f:               kacty=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/elbshal.f:ccc     &                      +wght*phi(j)*(dphi(1,i)*rjacinv(1,1)+
+fsrc/pack_geoflow/elbshal.f:ccc     &                      dphi(2,i)*rjacinv(1,2))*coef(i1,j1,1)
+fsrc/pack_geoflow/elbshal.f:ccc     &                      + wght*phi(j)*(dphi(1,i)*rjacinv(2,1)+
+fsrc/pack_geoflow/elbshal.f:ccc     &                      dphi(2,i)*rjacinv(2,2))*coef(i1,j1,2)
+fsrc/pack_geoflow/elbshal.f:ccc                          constant = constant + wght*phi(i)
+fsrc/pack_geoflow/elbshal.f:     &                      +wght*((dphi(1,i)*rjacinv(1,1) +
+fsrc/pack_geoflow/elbshal.f:     &                      dphi(2,i)*rjacinv(1,2))*(dphi(1,j)*
+fsrc/pack_geoflow/elbshal.f:     &                      rjacinv(1,1)+dphi(2,j)*rjacinv(1,2)) +
+fsrc/pack_geoflow/elbshal.f:     &                      (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*
+fsrc/pack_geoflow/elbshal.f:     &                      rjacinv(2,2))*(dphi(1,j)*rjacinv(2,1)+
+fsrc/pack_geoflow/elbshal.f:     &                      dphi(2,j)*rjacinv(2,2)))
+fsrc/pack_geoflow/elbshal.f:                  tpM(1)= tpM(1)+uk((j-1)*nequ+2)*phi(j)
+fsrc/pack_geoflow/elbshal.f:                  tpM(2)= tpM(2)+uk((j-1)*nequ+3)*phi(j)
+fsrc/pack_geoflow/elbshal.f:                  tpM(3)= tpM(3)+uk((j-1)*nequ+2)*U(2)*h_inv*phi(j)+
+fsrc/pack_geoflow/elbshal.f:     &                 0.5d0*uk((j-1)*nequ+1)*phi(j)*U(1)
+fsrc/pack_geoflow/elbshal.f:                  tpM(4)= tpM(4)+uk((j-1)*nequ+2)*phi(j)*U(3)*h_inv
+fsrc/pack_geoflow/elbshal.f:                  tpM(5)= tpM(5)+uk((j-1)*nequ+2)*phi(j)*U(3)*h_inv
+fsrc/pack_geoflow/elbshal.f:                  tpM(6)= tpM(6)+uk((j-1)*nequ+3)*phi(j)*U(3)*h_inv+
+fsrc/pack_geoflow/elbshal.f:     &                 0.5d0*uk((j-1)*nequ+1)*phi(j)*U(1)
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/elbshal.f:     &                wght*phi(i)*(tp(1)+tp(2)+tp(3))     
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/elbshal.f:     &                (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/elbshal.f:     &                wght*phi(i)*(tp(4)+tp(5)+tp(6))
+fsrc/pack_geoflow/getcoef.f:      double precision vel,cosphi,tandel,w,sgn,ka, epsilon
+fsrc/pack_geoflow/getcoef.f:      cosphi=dcos(intfrictang)
+fsrc/pack_geoflow/getcoef.f:         Kactx=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/getcoef.f:     1        dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/getcoef.f:         Kacty=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/getcoef.f:     1        dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/getkactxy.f:      dimension U(3),DUDX(3),DUDY(3),xnod(2,9),uk(9),phi(9)
+fsrc/pack_geoflow/getkactxy.f:      double precision kactxy(2),intfrictang,bedfrictang,dphi(2,9)
+fsrc/pack_geoflow/getkactxy.f:      call shape2dg(nord,xi1,eta1,phi)
+fsrc/pack_geoflow/getkactxy.f:      call dshap2dg(nord,xi1,eta1,dphi)
+fsrc/pack_geoflow/getkactxy.f:            U(in)= U(in)+phi(i)*uK((i-1)*nequ+in)
+fsrc/pack_geoflow/getkactxy.f:     &           *(dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/getkactxy.f:     &           *(dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/getkactxy.f:      cosphi= dcos(intfrictang) 
+fsrc/pack_geoflow/getkactxy.f:         kactxy(1)=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/getkactxy.f:     1        dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/getkactxy.f:         kactxy(2)=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/getkactxy.f:     1        dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/orig.elbshal.f:     &     phi, dphi, artvisc, src, diffmat)
+fsrc/pack_geoflow/orig.elbshal.f:      double precision xnod(2,9), phi_grav(4), dphi_grav(2,4)
+fsrc/pack_geoflow/orig.elbshal.f:      double precision phi(ndofe),dphi(2,ndofe),artvisc(Nc)
+fsrc/pack_geoflow/orig.elbshal.f:            call shape2dg(nord,xil(ii),xil(jj),phi)
+fsrc/pack_geoflow/orig.elbshal.f:            call dshap2dg(nord,xil(ii),xil(jj),dphi)
+fsrc/pack_geoflow/orig.elbshal.f:            call shape2(iord_grav, xil(ii),xil(jj),phi_grav)
+fsrc/pack_geoflow/orig.elbshal.f:            call dshap2(iord_grav, xil(ii),xil(jj),dphi_grav)
+fsrc/pack_geoflow/orig.elbshal.f:                  U(in)= U(in)+phi(i)*uK((i-1)*nequ+in)
+fsrc/pack_geoflow/orig.elbshal.f:     &                 *(dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/orig.elbshal.f:     &                 *(dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/orig.elbshal.f:                  grav(in)=grav(in)+gravnd((i-1)*nequ+in)*phi_grav(i) 
+fsrc/pack_geoflow/orig.elbshal.f:               dgdx(1)=dgdx(1)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(1,1)
+fsrc/pack_geoflow/orig.elbshal.f:     &              +dphi_grav(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/orig.elbshal.f:               dgdx(2)=dgdx(2)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(2,1)
+fsrc/pack_geoflow/orig.elbshal.f:     &              +dphi_grav(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/orig.elbshal.f:               inv_curv(1)=inv_curv(1)+curvature((i-1)*2+1)*phi_grav(i)
+fsrc/pack_geoflow/orig.elbshal.f:               inv_curv(2)=inv_curv(2)+curvature(i*2)*phi_grav(i)
+fsrc/pack_geoflow/orig.elbshal.f:            cosphi= dcos(intfrictang) 
+fsrc/pack_geoflow/orig.elbshal.f:               kactx=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/orig.elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/orig.elbshal.f:               kacty=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/orig.elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/orig.elbshal.f:     &                      +wght*phi(j)*(dphi(1,i)*rjacinv(1,1)+
+fsrc/pack_geoflow/orig.elbshal.f:     &                      dphi(2,i)*rjacinv(1,2))*coef(i1,j1,1)
+fsrc/pack_geoflow/orig.elbshal.f:     &                      + wght*phi(j)*(dphi(1,i)*rjacinv(2,1)+
+fsrc/pack_geoflow/orig.elbshal.f:     &                      dphi(2,i)*rjacinv(2,2))*coef(i1,j1,2)
+fsrc/pack_geoflow/orig.elbshal.f:                          constant = constant + wght*phi(i)
+fsrc/pack_geoflow/orig.elbshal.f:     &                      +wght*((dphi(1,i)*rjacinv(1,1) +
+fsrc/pack_geoflow/orig.elbshal.f:     &                      dphi(2,i)*rjacinv(1,2))*(dphi(1,j)*
+fsrc/pack_geoflow/orig.elbshal.f:     &                      rjacinv(1,1)+dphi(2,j)*rjacinv(1,2)) +
+fsrc/pack_geoflow/orig.elbshal.f:     &                      (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*
+fsrc/pack_geoflow/orig.elbshal.f:     &                      rjacinv(2,2))*(dphi(1,j)*rjacinv(2,1)+
+fsrc/pack_geoflow/orig.elbshal.f:     &                      dphi(2,j)*rjacinv(2,2)))
+fsrc/pack_geoflow/orig.elbshal.f:     &                wght*phi(i) *( grav(1)*U(1)
+fsrc/pack_geoflow/orig.elbshal.f:     &                wght*phi(i) * ( grav(2)*U(1)
+fsrc/pack_geoflow/temp.elbshal.f:     &     phi, dphi, artvisc, src, diffmat)
+fsrc/pack_geoflow/temp.elbshal.f:      double precision xnod(2,9), phi_grav(4), dphi_grav(2,4)
+fsrc/pack_geoflow/temp.elbshal.f:      double precision phi(ndofe),dphi(2,ndofe),artvisc(Nc)
+fsrc/pack_geoflow/temp.elbshal.f:            call shape2dg(nord,xil(ii),xil(jj),phi)
+fsrc/pack_geoflow/temp.elbshal.f:            call dshap2dg(nord,xil(ii),xil(jj),dphi)
+fsrc/pack_geoflow/temp.elbshal.f:            call shape2(iord_grav, xil(ii),xil(jj),phi_grav)
+fsrc/pack_geoflow/temp.elbshal.f:            call dshap2(iord_grav, xil(ii),xil(jj),dphi_grav)
+fsrc/pack_geoflow/temp.elbshal.f:                  U(in)= U(in)+phi(i)*uK((i-1)*nequ+in)
+fsrc/pack_geoflow/temp.elbshal.f:     &                 *(dphi(1,i)*rjacinv(1,1)+dphi(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/temp.elbshal.f:     &                 *(dphi(1,i)*rjacinv(2,1)+dphi(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/temp.elbshal.f:                  grav(in)=grav(in)+gravnd((i-1)*nequ+in)*phi_grav(i) 
+fsrc/pack_geoflow/temp.elbshal.f:               dgdx(1)=dgdx(1)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(1,1)
+fsrc/pack_geoflow/temp.elbshal.f:     &              +dphi_grav(2,i)*rjacinv(1,2))
+fsrc/pack_geoflow/temp.elbshal.f:               dgdx(2)=dgdx(2)+gravnd(i*3)*(dphi_grav(1,i)*rjacinv(2,1)
+fsrc/pack_geoflow/temp.elbshal.f:     &              +dphi_grav(2,i)*rjacinv(2,2))
+fsrc/pack_geoflow/temp.elbshal.f:               inv_curv(1)=inv_curv(1)+curvature((i-1)*2+1)*phi_grav(i)
+fsrc/pack_geoflow/temp.elbshal.f:               inv_curv(2)=inv_curv(2)+curvature(i*2)*phi_grav(i)
+fsrc/pack_geoflow/temp.elbshal.f:            cosphi= dcos(intfrictang) 
+fsrc/pack_geoflow/temp.elbshal.f:               kactx=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/temp.elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/temp.elbshal.f:               kacty=(2.d0/cosphi**2)*(1.d0-sgn(vel,tiny)*
+fsrc/pack_geoflow/temp.elbshal.f:     1              dsqrt(1.d0-(1.d0+tandel**2)*cosphi**2) ) -1.d0
+fsrc/pack_geoflow/temp.elbshal.f:     &                      +wght*phi(j)*(dphi(1,i)*rjacinv(1,1)+
+fsrc/pack_geoflow/temp.elbshal.f:     &                      dphi(2,i)*rjacinv(1,2))*coef(i1,j1,1)
+fsrc/pack_geoflow/temp.elbshal.f:     &                      + wght*phi(j)*(dphi(1,i)*rjacinv(2,1)+
+fsrc/pack_geoflow/temp.elbshal.f:     &                      dphi(2,i)*rjacinv(2,2))*coef(i1,j1,2)
+fsrc/pack_geoflow/temp.elbshal.f:                          constant = constant + wght*phi(i)
+fsrc/pack_geoflow/temp.elbshal.f:     &                      +wght*((dphi(1,i)*rjacinv(1,1) +
+fsrc/pack_geoflow/temp.elbshal.f:     &                      dphi(2,i)*rjacinv(1,2))*(dphi(1,j)*
+fsrc/pack_geoflow/temp.elbshal.f:     &                      rjacinv(1,1)+dphi(2,j)*rjacinv(1,2)) +
+fsrc/pack_geoflow/temp.elbshal.f:     &                      (dphi(1,i)*rjacinv(2,1)+dphi(2,i)*
+fsrc/pack_geoflow/temp.elbshal.f:     &                      rjacinv(2,2))*(dphi(1,j)*rjacinv(2,1)+
+fsrc/pack_geoflow/temp.elbshal.f:     &                      dphi(2,j)*rjacinv(2,2)))
+fsrc/pack_geoflow/temp.elbshal.f:                 temp1 = temp1 * wght*phi(i)
+fsrc/pack_geoflow/temp.elbshal.f:     &                wght*phi(i) * ( grav(2)*U(1)

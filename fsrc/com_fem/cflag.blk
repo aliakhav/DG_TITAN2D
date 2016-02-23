@@ -1,0 +1,9 @@
+
+      common/cflag/iflag_bf,iflag_c,iflag_mat,iflag_bc
+c
+c   iflag_bf:  control flag for body force
+c    iflag_c:  control flag for zero order term
+c  iflag_mat:  control flag for material properties
+c   iflag_bc:  control flag for boundary condition
+c
+

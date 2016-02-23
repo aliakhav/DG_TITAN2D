@@ -1,0 +1,13 @@
+      parameter (MAXMATS = 20)
+      common/elatcon/xlam_array(MAXMATS),xmi_array(MAXMATS),Eyoung,
+     .	poisson_ratio, WaveNo,Pinc,Omega,rho,ssf 
+c
+c  xlam_array,xmi_array,Eyoung,poisson_ratio - elastic constants
+c  WaveNo - wave number
+c  Pinc - strength of incident wave
+c  Omega - circular frequency
+c  rho - density of solid structure
+c  ssf - sound of speed in fluid
+c  MAXMATS - maximum amount of materials
+c
+

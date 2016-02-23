@@ -1,0 +1,5 @@
+
+      common/penalty/eps
+c
+c  eps: penalty coefficient for essential bc 
+c

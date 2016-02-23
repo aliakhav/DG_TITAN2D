@@ -1,0 +1,169 @@
+csrc/datstr/element2.C:  int Nc=ndof;
+csrc/datstr/element2.C:  elemcom_(&ifg, &no_of_eqns, &ndof, &Nc, order, Nelb, icon, ndcoord,
+csrc/datstr/element2.C:  elemcom(&ifg, &no_of_eqns, &ndof, &Nc, order, Nelb, icon, ndcoord,
+csrc/datstr/element2.C:  int Nc=ndof;
+csrc/datstr/element2.C:  int Nc = ndof/EQUATIONS;
+csrc/datstr/element2.C:    double* el_stiffness = new double[Nc*Nc];
+csrc/datstr/element2.C:  double* el_rhs = new double[Nc];
+csrc/datstr/element2.C:  double* sol_in = new double[Nc*4];
+csrc/datstr/element2.C:  double* sol_out = new double[Nc];
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	  sol_in[j+Nc] = father_sol1[j*EQUATIONS+i];
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	  sol_in[j+2*Nc] = father_sol2[j*EQUATIONS+i];
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	  sol_in[j+3*Nc] = father_sol3[j*EQUATIONS+i];	
+csrc/datstr/element2.C:      masselem_(&ifg, Norder, &Nc, &no_of_eqns, &Nc, 
+csrc/datstr/element2.C:		(sol_in+Nc), (sol_in+2*Nc), (sol_in+3*Nc), &which_son2);
+csrc/datstr/element2.C:	tri_(el_stiffness, &Nc, &Nc);
+csrc/datstr/element2.C:      rhsub_(el_stiffness, el_rhs, &Nc, &Nc, sol_out);
+csrc/datstr/element2.C:      masselem(&ifg, Norder, &Nc, &no_of_eqns, &Nc, 
+csrc/datstr/element2.C:		(sol_in+Nc), (sol_in+2*Nc), (sol_in+3*Nc), &which_son2);
+csrc/datstr/element2.C:	tri(el_stiffness, &Nc, &Nc);
+csrc/datstr/element2.C:      rhsub(el_stiffness, el_rhs, &Nc, &Nc, sol_out);
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/datstr/element2.C:	for(j=0;j<Nc;j++)
+csrc/geoflow/slopelimit.C:      int Nc = calc_num_shape_functions(order)*EQUATIONS;
+csrc/geoflow/slopelimit.C:      int Ncn = calc_num_shape_functions(order_n)*EQUATIONS;
+csrc/geoflow/slopelimit.C:      int Ncp = calc_num_shape_functions(order_p)*EQUATIONS;
+csrc/geoflow/slopelimit.C:	for (i=0;i<Ncp/EQUATIONS;i++)
+csrc/geoflow/slopelimit.C:	int Ncp2 = calc_num_shape_functions(order_p2)*EQUATIONS;
+csrc/geoflow/slopelimit.C:	  for (i=0;i<Ncp2/EQUATIONS;i++)
+csrc/geoflow/slopelimit.C:	for (i=0;i<Nc/EQUATIONS;i++){
+csrc/geoflow/slopelimit.C:	for (i=0;i<Nc/EQUATIONS;i++){
+csrc/geoflow/slopelimit.C:	for (i=0;i<Ncn/EQUATIONS;i++)
+csrc/geoflow/slopelimit.C:	int Ncn2 = calc_num_shape_functions(order_n2)*EQUATIONS;
+csrc/geoflow/slopelimit.C:	  for (i=0;i<Ncn2/EQUATIONS;i++)
+csrc/geoflow/slopelimit.C:  //  int Nc = calc_num_shape_functions(order)*EQUATIONS;
+csrc/geoflow/step.C:		  int Nc = calc_num_shape_functions(order)*EQUATIONS;
+csrc/geoflow/step.C:		  double*  temp_sol_in = new double[Nc*4];
+csrc/geoflow/step.C:		  double* el_mass = new double[Nc*Nc];
+csrc/geoflow/step.C:		  double* el_stiffness = new double[Nc*Nc];
+csrc/geoflow/step.C:		  double* el_rhs = new double[Nc];		
+csrc/geoflow/step.C:		  for (i=0;i<4*Nc;i++)
+csrc/geoflow/step.C:		  for (i=0;i<Nc;i++)
+csrc/geoflow/step.C:		  for (j=0;j<Nc*Nc;j++)
+csrc/geoflow/step.C:		  masselem_(&ifg, &order, &Nc, &no_of_eqns, &Nc, 
+csrc/geoflow/step.C:			    (temp_sol_in+Nc), (temp_sol_in+2*Nc), 
+csrc/geoflow/step.C:			    (temp_sol_in+3*Nc), &which_son2);
+csrc/geoflow/step.C:		    for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		    for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		  int ndofe=Nc/EQUATIONS;
+csrc/geoflow/step.C:		  double* tempstorage = new double[3*ndofe+Nc*(Nc+2)]; 
+csrc/geoflow/step.C:		  elbshal_(&Nc,&(ndcoord[0][0]),&order,&ndofe,temp_sol_in,
+csrc/geoflow/step.C:			   (tempstorage+3*ndofe+Nc),
+csrc/geoflow/step.C:			   (tempstorage+3*ndofe+2*Nc),&rkstep,&timestep); 
+csrc/geoflow/step.C:		  //		  for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:			       order,Nc,temp_sol_in, nodecord,
+csrc/geoflow/step.C:		  double* predictor=new double[Nc];
+csrc/geoflow/step.C:		  for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		  double* solout= new double[Nc];
+csrc/geoflow/step.C:		  for (j=0;j<Nc;j++)
+csrc/geoflow/step.C:			  for (k=0;k<Nc;k++)
+csrc/geoflow/step.C:		  tri_(el_mass, &Nc, &Nc);
+csrc/geoflow/step.C:		  rhsub_(el_mass,el_rhs,&Nc,&Nc,predictor);
+csrc/geoflow/step.C:		  for(j=0;j<Nc;j++){
+csrc/geoflow/step.C:		  double*  el_solution = new double[Nc];
+csrc/geoflow/step.C:		  for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		      for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		      for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		      for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:		  Curr_El->store_temp_el_solution(predictor,Nc);
+csrc/geoflow/step.C:		  HashTable* NodeTable,int order,int Nc,double* sol_in, 
+csrc/geoflow/step.C:  Nc=calc_num_shape_functions(order)*EQUATIONS;
+csrc/geoflow/step.C:  //  for(j=0;j<Nc;j++)
+csrc/geoflow/step.C:	  int Nc1=calc_num_shape_functions(neigh_order)*EQUATIONS;
+csrc/geoflow/step.C:	  double * sol_neig1 = new double[Nc1];
+csrc/geoflow/step.C:	  for(k=0;k<Nc1;k++)
+csrc/geoflow/step.C:	      for (k=0;k<(Nc/EQUATIONS);k++)
+csrc/geoflow/step.C:	      for (k=0;k<(Nc1/EQUATIONS);k++)
+csrc/geoflow/step.C:	  for (k=0;k<Nc/EQUATIONS;k++)
+csrc/geoflow/step.C:	  for (k=0;k<Nc1/EQUATIONS;k++)
+csrc/geoflow/step.C:	  int ndofe=Nc/EQUATIONS;
+csrc/geoflow/step.C:	  int ndofe1=Nc1/EQUATIONS;
+csrc/geoflow/step.C:	  // for (k=0;k< Nc/EQUATIONS;k++) 
+csrc/geoflow/step.C:	      for (k=0;k<Nc/EQUATIONS;k++) 
+csrc/geoflow/step.C:  //for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:		  int Nc = calc_num_shape_functions(order)*EQUATIONS;
+csrc/geoflow/stepWorking.C:		  double * sol_in = new double[Nc*4];
+csrc/geoflow/stepWorking.C:		  double* el_mass = new double[Nc*Nc];
+csrc/geoflow/stepWorking.C:		  double* el_stiffness = new double[Nc*Nc];
+csrc/geoflow/stepWorking.C:		  double* el_rhs = new double[Nc];		
+csrc/geoflow/stepWorking.C:		  for (i=0;i<4*Nc;i++)
+csrc/geoflow/stepWorking.C:		  for (i=0;i<Nc;i++)
+csrc/geoflow/stepWorking.C:		  for (j=0;j<Nc*Nc;j++)
+csrc/geoflow/stepWorking.C:		  masselem_(&ifg, &order, &Nc, &no_of_eqns, &Nc, 
+csrc/geoflow/stepWorking.C:			    (sol_in+Nc), (sol_in+2*Nc), (sol_in+3*Nc), 
+csrc/geoflow/stepWorking.C:		  for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:		  int ndofe=Nc/EQUATIONS;
+csrc/geoflow/stepWorking.C:		  double* tempstorage = new double[3*ndofe+Nc*(Nc+2)]; 
+csrc/geoflow/stepWorking.C:		  elbshal_(&Nc,&(ndcoord[0][0]),&order,&ndofe,sol_in,
+csrc/geoflow/stepWorking.C:			   (tempstorage+3*ndofe+Nc),
+csrc/geoflow/stepWorking.C:			   (tempstorage+3*ndofe+2*Nc),&rkstep,&timestep); 
+csrc/geoflow/stepWorking.C:			       order,Nc,sol_in, nodecord,
+csrc/geoflow/stepWorking.C:		  double* predictor=new double[Nc];
+csrc/geoflow/stepWorking.C:		  for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:		  double* solout= new double[Nc];
+csrc/geoflow/stepWorking.C:		  for (j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:			  for (k=0;k<Nc;k++)
+csrc/geoflow/stepWorking.C:		  tri_(el_mass, &Nc, &Nc);
+csrc/geoflow/stepWorking.C:		  rhsub_(el_mass,el_rhs,&Nc,&Nc,predictor);
+csrc/geoflow/stepWorking.C:		    for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:		    Curr_El->store_temp_el_solution(predictor,Nc);
+csrc/geoflow/stepWorking.C:	    int Nc = calc_num_shape_functions(order)*EQUATIONS; 
+csrc/geoflow/stepWorking.C:	    double * sol_in = new double[Nc*4];
+csrc/geoflow/stepWorking.C:	    for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:	      for(j=0;j<Nc;j++)
+csrc/geoflow/stepWorking.C:	      Curr_El->store_el_solution(sol_in,Nc);
+csrc/geoflow/stepWorking.C:		  HashTable* NodeTable,int order,int Nc,double* sol_in, 
+csrc/geoflow/stepWorking.C:  double *       sol_neig1=new double[Nc];
+csrc/geoflow/stepWorking.C:	  for(k=0;k<Nc;k++)
+csrc/geoflow/stepWorking.C:	  for (k=0;k<Nc/EQUATIONS;k++)
+csrc/geoflow/stepWorking.C:	  for (k=0;k<Nc/EQUATIONS;k++)
+csrc/geoflow/stepWorking.C:	  int ndofe=Nc/EQUATIONS;
+csrc/geoflow/stepWorking.C:	      for (k=0;k<Nc/EQUATIONS;k++) 
+csrc/header/element2.h:inline void Element::store_el_solution(double * newsol,int Nc)
+csrc/header/element2.h:  for(i=0;i<Nc;i++){
+csrc/header/element2.h:inline void Element::store_temp_el_solution(double * newsol,int Nc)
+csrc/header/element2.h:  for(i=0;i<Nc;i++){
+csrc/header/element2.h:  for(i=Nc;i<ELM_DOF;i++){
+csrc/header/element2.h:inline void Element::store_prev_el_solution(double * newsol,int Nc)
+csrc/header/element2.h:  for(i=0;i<Nc;i++)
+csrc/postproc/postproc1.C:	    int Nc = EmTemp->get_no_of_dof();
+fsrc/pack_bc/bcelem.f:      subroutine bcelem(ifg,Norder,nedof,nequ,Nc,Nelb,xy,xk,Rhs,value)
+fsrc/pack_bc/bcelem.f:      dimension Norder(*),xk(Nc,*),Rhs(*), value(*)
+fsrc/pack_elemn/elemcom.f:      subroutine elemcom(ifg,nequ,ndff,Nc,Norder,Nelb,Icon,
+fsrc/pack_elemn/elemcom.f:      dimension ek(Nc,Nc),ef(*),xnod(2,9),bcvalue(*) 
+fsrc/pack_elemn/elemcom.f:      call pelem(ifg,Norder,ndff,nequ,Nc,xnod,ek,ef,matid)
+fsrc/pack_elemn/elemcom.f:      call bcelem(ifg,Norder,ndff,nequ,Nc,Nelb,xnod,ek,ef, bcvalue)
+fsrc/pack_elemn/elemcom.f:      call elmcon(ifg,Norder,ndff,nequ,Nc,Icon,ek,ef)
+fsrc/pack_elemn/elmcon.f:c                      Nc -
+fsrc/pack_elemn/elmcon.f:      subroutine elmcon(ifg,Norder,nedofr,nequ,Nc,Icon,ek,ef)
+fsrc/pack_elemn/elmcon.f:      dimension ek(Nc,*),ef(*)
+fsrc/pack_elemn/elmcon.f:      parameter (Nc1 = 121)
+fsrc/pack_elemn/elmcon.f:      double precision xk(Nc1,Nc1),rh(Nc1)
+fsrc/pack_elemn/elmcon.f:        call setz( xk, Nc1*nedof )
+fsrc/pack_elemn/masselem.f:c                   Nc - length of the column of ek      
+fsrc/pack_elemn/masselem.f:      subroutine masselem(ifg,Norder,nedofr,nequ,Nc,
+fsrc/pack_elemn/masselem.f:      dimension ek(Nc,Nc),ef(Nc), sol1(Nc),sol2(Nc),sol3(Nc),sol4(Nc)
+fsrc/pack_elemn/pelem.f:c                   Nc - length of the column of ek      
+fsrc/pack_elemn/pelem.f:      subroutine pelem(ifg,Norder,nedofr,nequ,Nc,xnod,ek,ef,matid)
+fsrc/pack_elemn/pelem.f:      dimension ek(Nc,*),ef(*)
+fsrc/pack_geoflow/calcave.f:c                   Nc - length of the column of ek      
+fsrc/pack_geoflow/calcave.f:      subroutine calcave(Norder,nedofr,nequ,Nc,
+fsrc/pack_geoflow/calcave.f:      dimension sol(Nc)
+fsrc/pack_geoflow/calcvol.f:c                   Nc - length of the column of ek      
+fsrc/pack_geoflow/calcvol.f:      subroutine calcvol(Norder,nedofr,nequ,Nc,
+fsrc/pack_geoflow/calcvol.f:      dimension sol(Nc)
+fsrc/pack_geoflow/elbshal.f:      subroutine elbshal(Nc,xnod,nord,ndofe,uK,bm,r,tiny,gravnd,
+fsrc/pack_geoflow/elbshal.f:      double precision uK(Nc*4),r(Nc)
+fsrc/pack_geoflow/elbshal.f:      double precision bm(Nc,Nc)
+fsrc/pack_geoflow/elbshal.f:      double precision src(Nc),src2(Nc),xi(2)
+fsrc/pack_geoflow/elbshal.f:      double precision phi(10),dphi(2,10),artvisc(Nc)
+fsrc/pack_geoflow/elbshal.f:      double precision diffmat(Nc,Nc)
+fsrc/pack_geoflow/elbshal.f:cc      do i=1,Nc
+fsrc/pack_geoflow/elbshal.f:      do 10 i=1,Nc
+fsrc/pack_geoflow/elbshal.f:         do 10 j=1,Nc
+fsrc/pack_geoflow/elbshal.f:c     do i=1,Nc

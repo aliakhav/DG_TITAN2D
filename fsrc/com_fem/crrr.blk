@@ -1,0 +1,6 @@
+      common /crrr/ RRR(10,10,2)
+c
+c  explanation of variables:
+c     RRR   -  constants for intepolation
+c
+
