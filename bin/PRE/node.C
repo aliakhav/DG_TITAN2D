@@ -1,6 +1,6 @@
-#include <iostream.h>
-#include <fstream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include <stdio.h>
 #include "node.h"
 

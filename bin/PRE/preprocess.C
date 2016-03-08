@@ -1,10 +1,11 @@
-#include<iostream.h>
-#include<fstream.h>
-#include<math.h>
-#include<stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <math.h>
+#include <stdlib.h>
 #include "element.h"
 #include "node.h"
 #include "boundary.h"
+//using namespace std;
 //load has to be applied on the middle node of the face!!!
 // executable must include the number of processors on the command line -- e.g. ./preprocess 1    for 1 processor!
 

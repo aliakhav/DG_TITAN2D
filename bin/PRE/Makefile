@@ -1,147 +1,41 @@
-SHELL = /bin/sh
-SYSOS := $(shell uname)
-HOST := $(shell hostname)
+# Generated automatically from Makefile.in by configure.
+SYSOS	:= $(shell uname)
 
-################################
-# system specific information
-################################
+ALL: default
+##### User configurable options #####
 
-# for the linux boxes in the trailer...
-ifeq "$(HOST)" "popo" 
-override HOST = Trailer
+ifeq "$(SYSOS)" "AIX"
+CC          = xlc
+CCC         = xlC
+F77         = xlf
 endif
-ifeq "$(HOST)" "colima" 
-override HOST = Trailer
+ifeq "$(SYSOS)" "IRIX64"
+CC          = cc
+CCC         = CC
+F77         = f77
 endif
-ifeq "$(HOST)" "elchichon" 
-override HOST = Trailer
+ifeq "$(SYSOS)" "Linux"
+CC          = gcc
+CCC         = g++
+F77         = gfortran
 endif
-ifeq "$(HOST)" "rainier"
-override HOST = Trailer
-endif
-ifeq "$(HOST)" "sthelens"
-override HOST = Trailer
-endif
-ifeq "$(HOST)" "casita" 
-override HOST = Trailer
-endif
+CLINKER     = $(CC)
+CCLINKER    = $(CCC)
+FLINKER     = $(F77)
+FLAGS       = -O2
 
-# Linux OS in the trailer
-ifeq "$(HOST)" "Trailer"
+EXECS = preprocess
+default: $(EXECS)
 
-CC = gcc
-LIBTOOL = /usr/bin/libtool 
-LIBS = -lnsl -lz -lm -lg2c -lc
-INCLUDES = -I. -I../../csrc/header
-DEFS = -DHAVE_CONFIG_H 
-#CCLD = $(CC)
-CCLD = g++
-II_FILES =
-endif
-#Linux standalone
-ifeq "$(HOST)" "localhost"
+all: default
 
-CC = gcc
-LIBTOOL = /usr/bin/libtool
-LIBS = -lnsl -lz -lm -lg2c -lc
-INCLUDES = -I.
-DEFS = -DHAVE_CONFIG_H
-#CCLD = $(CC)
-CCLD = g++
-II_FILES =
-endif
-
-# nash.ccr.buffalo.edu
-ifeq "$(HOST)" "nash.ccr.buffalo.edu"
-
-CC = gcc
-LIBTOOL = /usr/bin/libtool 
-LIBS = -lnsl -lz -lm -lg2c -lc 
-INCLUDES = -I. -I../../csrc/header
-DEFS = -DHAVE_CONFIG_H
-#CCLD = $(CC)
-CCLD = g++
-II_FILES =
-endif
-
-# joplin.ccr.buffalo.edu
-ifeq "$(HOST)" "joplin.ccr.buffalo.edu"
-
-CC = gcc
-LIBTOOL = /usr/bin/libtool 
-LIBS = -lnsl -lz -lm -lg2c -lc
-INCLUDES = -I. -I../../csrc/header
-DEFS = -DHAVE_CONFIG_H
-#CCLD = $(CC)
-CCLD = g++
-II_FILES = 
-endif
-
-# crosby.ccr.buffalo.edu
-ifeq "$(HOST)" "crosby.ccr.buffalo.edu"
-
-#CC = cc -w
-CC = CC -w
-#LIBTOOL = /usr/freeware/bin/libtool
-LIBS = -lnsl -lz -lm -lc -lftn
-INCLUDES = -I. -I../../csrc/header
-DEFS = -DHAVE_CONFIG_H
-#CCLD = $(F77)
-CCLD = CC
-CPPFLAGS = -LANG:std
-II_FILES = ./ii_files
-endif
-
-################################
-# everything below shouldn't
-# need to be changed
-################################
-OPT_FLAGS = -O2
-#GisApi_SOURCES = create_funky.c
-
-#CPPFLAGS =
-LDFLAGS =
-GisApi_OBJECTS = create_funky.o GisApi.o  GisAscFile.o  GisRasterHdr.o  GisBinFile.o  preproc.o
-GisApi_LDFLAGS =
-CFLAGS = -O3
-COMPILE = $(CC) $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS)
-LTCOMPILE = $(CC) $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) 
-LINK = $(LIBTOOL) --mode=link $(CCLD) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
-
-#SOURCES = $(GisApi_SOURCES)
-OBJECTS = $(GisApi_OBJECTS)
-
-.c.o:
-	$(COMPILE) $(OPT_FLAGS) -c $<
-
-.C.o: 
-	$(COMPILE) $(OPT_FLAGS) -c $< 
-
-.f.o:
-	$(F77) $(OPT_FLAGS) -c $<
-
-preproc.x: $(GisApi_OBJECTS)
-	@rm -f
-	$(LINK) $(GisApi_LDFLAGS) $(GisApi_OBJECTS) $(LIBS)
-	@rm -rf .libs
-
-GisAscFile.o: ../../csrc/geoflow/GisAscFile.C ../../csrc/header/GisAscFile.h
-	 $(COMPILE) $(OPT_FLAGS) -c ../../csrc/geoflow/GisAscFile.C
-
-GisRasterHdr.o: ../../csrc/geoflow/GisRasterHdr.C ../../csrc/header/GisRasterHdr.h \
-		    ../../csrc/header/GisAscFile.h
-	 $(COMPILE) $(OPT_FLAGS) -c ../../csrc/geoflow/GisRasterHdr.C
-
-GisBinFile.o: ../../csrc/geoflow/GisBinFile.C ../../csrc/header/GisBinFile.h
-	 $(COMPILE) $(OPT_FLAGS) -c ../../csrc/geoflow/GisBinFile.C
-
-GisApi.o: ../../csrc/geoflow/GisApi.C ../../csrc/header/GisApi.h \
-	    ../../csrc/header/GisAscFile.h ../../csrc/header/GisRasterHdr.h ../../csrc/header/GisBinFile.h
-	 $(COMPILE) $(OPT_FLAGS) -c ../../csrc/geoflow/GisApi.C
-
-create_funky.o: create_funky.C GisApi.o ../../csrc/header/GisApi.h preproc.o
-
-preproc.o: preproc.f
+preprocess: preprocess.o element2.o boundary.o node.o hilbert.o
+	$(CCC) $(FLAGS) -o preprocess preprocess.o element2.o \
+	boundary.o node.o hilbert.o
 
 clean:
-	rm -rf *.o *~ preproc.x .libs pile.data frict.data funky.dat $(II_FILES)
+	rm -f *.o *~ PI* preprocess frict.data
+
+.C.o:
+	$(CCC) $(FLAGS) -c $*.C
+

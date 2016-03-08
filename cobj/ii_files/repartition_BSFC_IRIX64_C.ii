@@ -1,3 +1,0 @@
-CMDLINE=CC -DEFAULT:abi=n32:isa=mips4:proc=r10k -I. -g -woff all -LANG:std -c -n32 ../csrc/repartition/repartition_BSFC.C -o repartition_BSFC_IRIX64_C.o
-PWD=/scratch/cnichita/DG_SIMULATION/cobj
-----

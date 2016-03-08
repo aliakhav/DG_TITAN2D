@@ -29,7 +29,7 @@ class Element {
   void write_element_data(ofstream*);
   void reset_written_flag();
   void find_boundary(int, int, Boundary*);
-  Edge* get_element_edges();
+//  Edge* get_element_edges();
   Element* get_neighbors(int);
   void determine_opposite_brother();
 
@@ -37,7 +37,7 @@ class Element {
   int elementid;
   Boundary* boundary[4][2];
   Node* element_nodes[9];
-  Edge* element_edges[4];
+//  Edge* element_edges[4];
   Element* neighbor[4];
   int material;
   int myprocess; 

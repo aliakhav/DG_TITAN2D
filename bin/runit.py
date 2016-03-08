@@ -761,8 +761,8 @@ date
             while i == 0:
                 i =  os.access(f_p, os.F_OK)
                                         
-            os.system('cd '+directory+';/usr/local/mpich-1.2.4/ch_p4/bin/mpirun -machinefile machines -np '+str(numprocs)+' hpfem')
-            
+#            os.system('cd '+directory+';/usr/local/mpich-1.2.4/ch_p4/bin/mpirun -machinefile machines -np '+str(numprocs)+' hpfem')
+
         
 root=Tk()
 app=QuestionTemplate(root)

@@ -12,6 +12,7 @@ class Edge {
   Node* get_edge_nodes();
 
  private:
+
   int edgeid;
   Node* edge_nodes[3];
   int owner[2];
