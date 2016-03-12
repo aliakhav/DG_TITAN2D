@@ -27,8 +27,8 @@ FFLAGS      = $(OPTFLAGS)
 INCLUDES    =
 SYSLIBS	    = -lblas -lz 
 LDFLAGS	    = $(OPTFLAGS)
-LINKER	    = $(CCC) -o hpfem
-#/usr/bin/libtool --mode=link $(CCC)
+LINKER	    = $(CCC) -o hpfem 
+#/usr/bin/libtool --mode=link $(CCC) -o hpfem
 CCC_SUFFIXES = 
 F77_SUFFIXES = 
 

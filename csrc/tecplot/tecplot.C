@@ -24,7 +24,7 @@ void meshplotter(HashTable* HT_Elem_Ptr, HashTable* HT_Node_Ptr, int which,
   Node* NodeTemp;
   HashEntry* entryp;
   unsigned* nodes;
-  char filename[20] = "mshplotxxxxxxxx.plt";
+  char filename[20] = "tecplotxxxxxxxx.tec";
   filename[14] = (which % 10) + 48;
   filename[13] = (which % 100)/10 + 48;
   filename[12] = (which % 1000)/100 + 48;

@@ -1,0 +1,17 @@
+NOTE:  This file outputs the data used in the runs, NOT the data input into the Python script
+GIS Information Main Directory:  /ramona1_1/data/users/aliakhav/TITAN2D
+GIS Sub-Directory:  DEM
+GIS Map Set:  Incline_Wide
+GIS Map:  Incline_Wide
+Simulation Directory Location:  Inclined
+Number of Processors:  1
+Computational Mesh Points in Y-Direction:  10
+Internal Friction Angle (deg):  37.3
+Bed Friction Angle (deg):  32.47
+Number of Piles:  1
+Scale Simulation? yes
+If Scaled, Length Scale (m):  1.0
+Maximum Number of Time Steps:  10000
+Maximum Time (s):  1.0
+Time Steps per Results Output:  0.1
+Adapt the Grid?  yes

@@ -14,7 +14,7 @@ const int  NONZERO   = 111;
 const int   PRIME     = 2017;        //used for creating hash key
 const int   DIMENSION = 2;
 const int   EQUATIONS = 3;
-const int   ORDER     = 2;
+const int   ORDER     = 1;
 const int   MAX_ORDER = 3;  // 6 shape functions when order is 3
 const int  ELM_DOF = EQUATIONS*9;  // the number of dof associated with an element
 
